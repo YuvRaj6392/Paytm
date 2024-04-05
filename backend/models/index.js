@@ -1,8 +1,10 @@
 const mongoose=require('mongoose');
 const db={};
-const {DatabaseUrl}=require('../configuration/config');
-const {User}=require("../models/userModel")
+const {DB_URL}=require('../configuration/config');
+const {User}=require("./userModel");
+const { Account } = require('./accountModel');
 db.mongoose=mongoose;
-db.url=DatabaseUrl;
+db.url=DB_URL;
 db.users=User
+db.accounts=Account
 module.exports=db;

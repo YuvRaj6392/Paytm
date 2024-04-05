@@ -16,7 +16,15 @@ const authMiddleware = async (req, res, next) => {
 
     try {
       const verifyToken = await jwt.verify(token, JWT_SECRET);
-      if (verifyToken.uuid) {
+      
+      if (verifyToken.exp && verifyToken.exp < Date.now() / 1000) {
+        return res.status(401).json({
+          success: false,
+          msg: "Token has expired",
+        });
+      }
+
+      if (verifyToken.uuid ) {
         req.headers.userId = verifyToken.uuid;
         return next();
       } else {
