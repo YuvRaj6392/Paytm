@@ -1,6 +1,6 @@
 import CredButton from "../CredButton";
 import { Link } from "react-router-dom";
-export default function CreationAndLogin({title,desc,showFirstLastName,buttonName}) {
+export default function CreationAndLogin({title,desc,showFirstLastName,buttonName,handler}) {
   return (
     <div className="flex justify-center items-center h-screen bg-slate-300">
         <div className="flex justify-center flex-col w-[85%] sm:w-[30%] h-auto bg-white border-red-200 rounded-md py-8 gap-3 ">
@@ -19,7 +19,7 @@ export default function CreationAndLogin({title,desc,showFirstLastName,buttonNam
             <input className="border border-blue-300 w-[75%] m-auto shadow-md h-[35px]" type="text" placeholder="johndoe@gmail.com" />
             <p className="font-semibold  w-[75%] m-auto">Password</p> 
             <input className="border border-blue-300 w-[75%] m-auto shadow-md h-[35px]" type="text"/>
-            <CredButton buttonName={buttonName} />
+            <CredButton buttonName={buttonName} handler={handler} />
             {
               showFirstLastName 
               ?
