@@ -12,7 +12,7 @@ export default function CreationAndLogin({title, desc, showFirstLastName, button
   return (
     <div className="flex justify-center items-center h-screen bg-slate-300">
       <div className="flex justify-center flex-col w-[85%] sm:w-[30%] h-auto bg-white border-red-200 rounded-md py-8 gap-3 ">
-        <p className="font-extrabold text-black text-center">{title}</p>
+        <p className="text-3xl font-extrabold text-black text-center">{title}</p>
         <p className="font-thin text-gray-400 text-black text-center">{desc}</p>
         {showFirstLastName && (
           <>
