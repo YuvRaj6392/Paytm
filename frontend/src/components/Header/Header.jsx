@@ -15,6 +15,7 @@ export default function Header() {
         </div>
         <div onClick={()=>{
           setToken(localStorage.removeItem("token"))
+          window.location.reload()
         }} className='text-xl font-normal sm:text-2xl bg-red-700 py-1 px-2 text-white rounded-md cursor-pointer'>
           Logout 
         </div>

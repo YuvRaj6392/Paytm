@@ -13,7 +13,7 @@ export default function Input() {
   if(e){
    setInput(e.target.value)
   }
-  const json = await FetchUsersApi(input,token)
+  const json = await FetchUsersApi(input)
  
   if(!json.success || tokenError(json)){
    setToken(localStorage.removeItem("token"))

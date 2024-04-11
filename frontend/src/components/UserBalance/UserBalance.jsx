@@ -9,8 +9,8 @@ export default function UserBalance() {
   const [token,setToken]=useRecoilState(tokenAtom)
 
 
-  const getUsersBalance=async(token)=>{
-    const json=await userBalanceApi(token);
+  const getUsersBalance=async()=>{
+    const json=await userBalanceApi();
     if(!json.success || tokenError(json)){
       setToken(localStorage.removeItem("token"))
     }else{
@@ -19,7 +19,7 @@ export default function UserBalance() {
   }
 
   useEffect(()=>{
-    getUsersBalance(token)
+    getUsersBalance()
   },[balance])
   return (
     <div className='font-semibold m-5 sm:text-2xl sm:m-8'>
