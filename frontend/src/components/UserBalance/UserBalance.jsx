@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { balanceAtom } from '../../store/atoms/balanceAtom'
 import { userBalanceApi } from '../../Api/UserBalanceApi'
 import {tokenAtom} from "../../store/atoms/tokenAtom"
+import { tokenError } from '../../functions/tokenError'
 export default function UserBalance() {
   const [balance,setBalance]=useRecoilState(balanceAtom)
   const [token,setToken]=useRecoilState(tokenAtom)
@@ -10,7 +11,7 @@ export default function UserBalance() {
 
   const getUsersBalance=async(token)=>{
     const json=await userBalanceApi(token);
-    if(!json.success){
+    if(!json.success || tokenError(json)){
       setToken(localStorage.removeItem("token"))
     }else{
       setBalance(json.balance)
@@ -18,7 +19,7 @@ export default function UserBalance() {
   }
 
   useEffect(()=>{
-    setTimeout(getUsersBalance(token),2000)
+    getUsersBalance(token)
   },[balance])
   return (
     <div className='font-semibold m-5 sm:text-2xl sm:m-8'>
