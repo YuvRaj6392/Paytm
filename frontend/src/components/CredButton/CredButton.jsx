@@ -35,7 +35,7 @@ export default function CredButton({ buttonName, handler }) {
       };
       const json = await SignupApi(obj);
 
-      console.log(json);
+      
       if (!json.success) {
         setLoading(false);
         alert(json.msg);
@@ -62,7 +62,7 @@ export default function CredButton({ buttonName, handler }) {
       };
       const json = await SigninApi(obj);
 
-      console.log(json);
+      
       if (!json.success) {
         setLoading(false);
         alert(json.msg);

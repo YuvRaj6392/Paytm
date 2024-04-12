@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil'
 import { tokenAtom } from './store/atoms/tokenAtom'
 import Header from './components/Header/Header'
 export default function MainAppItem() {
-  const token=useRecoilValue(tokenAtom)
+  const token=localStorage.getItem("token")
   useEffect(()=>{
     if(!token && window.location.pathname!=="/signup" && window.location.pathname!=="/signin"){
       window.location.href = '/signin';
