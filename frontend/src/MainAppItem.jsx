@@ -4,8 +4,8 @@ import SingIn from "./components/screens/Signin"
 import Dashboard from "./components/screens/Dashboard"
 import Send from "./components/screens/Send"
 import Signup from "./components/screens/Signup"
-import { useRecoilValue } from 'recoil'
-import { tokenAtom } from './store/atoms/tokenAtom'
+
+
 import Header from './components/Header/Header'
 export default function MainAppItem() {
   const token=localStorage.getItem("token")

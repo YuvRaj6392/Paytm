@@ -1,10 +1,7 @@
 import React from 'react'
-import { useSetRecoilState } from 'recoil'
-import { tokenAtom } from '../../store/atoms/tokenAtom'
 import { useNavigate } from 'react-router-dom'
 export default function Header() {
     const history=useNavigate()
-    const setToken=useSetRecoilState(tokenAtom)
   return (
     <div className='flex justify-between items-center shadow-lg p-2 sm:p-4'>
       <div className='text-2xl font-extrabold sm:text-4xl cursor-pointer' onClick={()=>{
@@ -17,7 +14,7 @@ export default function Header() {
           Hello, User
         </div>
         <div onClick={()=>{
-          setToken(localStorage.removeItem("token"))
+          localStorage.removeItem("token")
           window.location.reload()
         }} className='text-xl font-normal sm:text-2xl bg-red-700 py-1 px-2 text-white rounded-md cursor-pointer'>
           Logout 

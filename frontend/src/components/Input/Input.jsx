@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import {FetchUsersApi} from '../../Api/FetchUsersApi'
 import {  useRecoilState } from 'recoil'
 import { tokenError } from '../../functions/tokenError'
-import { tokenAtom } from '../../store/atoms/tokenAtom'
+
 import {usersAtom} from '../../store/atoms/usersAtom'
 
 export default function Input() {
  const [input,setInput]=useState("")
- const [token,setToken]=useRecoilState(tokenAtom)
  const [users,setUsers]=useRecoilState(usersAtom)
  const giveUsers=async (e)=>{
   if(e){
@@ -16,7 +15,7 @@ export default function Input() {
   const json = await FetchUsersApi(input)
  
   if(!json.success || tokenError(json)){
-   setToken(localStorage.removeItem("token"))
+   localStorage.removeItem("token")
   }else{
    setUsers(json.user)
   }

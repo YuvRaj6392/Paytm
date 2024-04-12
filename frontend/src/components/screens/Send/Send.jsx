@@ -11,7 +11,6 @@ export default function Send() {
   const [loading, setLoading] = useState(false);
   const setBalance = useSetRecoilState(balanceAtom);
   const [success, setSuccess] = useState(false);
-
   const redirect = () => {
     setTimeout(() => {
       window.location.href = "/";
