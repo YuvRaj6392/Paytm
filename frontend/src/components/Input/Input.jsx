@@ -16,6 +16,7 @@ export default function Input() {
  
   if(!json.success || tokenError(json)){
    localStorage.removeItem("token")
+   window.location.reload()
   }else{
    setUsers(json.user)
   }

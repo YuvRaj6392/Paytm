@@ -12,6 +12,7 @@ export default function UserBalance() {
     const json=await userBalanceApi();
     if(!json.success || tokenError(json)){
       localStorage.removeItem("token")
+      window.location.reload()
     }else{
       setBalance(json.balance)
     }
